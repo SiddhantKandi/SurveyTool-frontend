@@ -7,7 +7,6 @@ import Spinner from "../../utils/Spinner.jsx";
 import { MdErrorOutline } from "react-icons/md";
 import { showLoadingToast, updateToast } from "../../utils/toastUtils.js";
 import { capitalizeFirstLetter } from "../../utils/constants.js";
-import File from '../Preview/File.jsx'
 
 const SurveyPage = () => {
   const { surveyTitle, surveyType, surveyCategory } = useParams();
@@ -28,7 +27,6 @@ const SurveyPage = () => {
     userLocation: null,
   });
   const [userId, setUserId] = useState(null);
-  const [surveyTemplate,setSurveyTemplate] = useState([]);
 
   const hasFetched = useRef(false);
 
@@ -59,7 +57,6 @@ const SurveyPage = () => {
           questions: response.data.surveyQuestions || [],
           status: response.data.surveyOpenClose || "",
         });
-        setSurveyTemplate(response?.data?.template);
         hasFetched.current = true;
       } catch (error) {
         toast.error(
@@ -372,9 +369,6 @@ const SurveyPage = () => {
                   </div>
                 </div>
               </div>
-            )}
-            {surveyTemplate.length > 0 && (
-              <File surveyTemplate={surveyTemplate}/>
             )}
             <div className="flex justify-center mt-28">
               <button

@@ -9,7 +9,6 @@ import Spinner from "../../utils/Spinner.jsx";
 import Logo from "../../assets/Logo.png";
 import { showLoadingToast, updateToast } from "../../utils/toastUtils.js";
 import { capitalizeFirstLetter } from "../../utils/constants.js";
-import File from "./File.jsx";
 
 const Preview = () => {
   const { surveyTitle, surveyType, surveyCategory } = useParams(); // Capture surveyTitle from the route
@@ -20,7 +19,6 @@ const Preview = () => {
   const [showlink, setShowlink] = useState(false);
   const [surveyLink, setSurveyLink] = useState(""); // To store the generated link
   const [loading, setLoading] = useState(true);
-  const [surveyTemplate, setSurveyTemplate] = useState([]);
 
   const navigate = useNavigate();
 
@@ -42,7 +40,6 @@ const Preview = () => {
         );
         setSurveyQuestions(response?.data.surveyQuestions);
         setSurveyLink(response?.data.surveyLink);
-        setSurveyTemplate(response?.data?.template);
 
         toast.success(
           response.data.message || "Preview Page loaded successfully"
@@ -346,9 +343,7 @@ const Preview = () => {
                 </div>
               )}
 
-              {surveyTemplate.length > 0 && (
-                <File surveyTemplate={surveyTemplate} />
-              )}
+              
             </div>
           </>
         </>

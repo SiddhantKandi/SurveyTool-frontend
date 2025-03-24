@@ -7,7 +7,6 @@ import QuestionList from "../../Components/DisplayQuestionList.jsx";
 import ImportQuestions from "./ImportQuestions.jsx";
 import QuestionBank from "./Questionbank.jsx";
 import { toast } from "react-toastify";
-import Template from "./Template.jsx";
 import { CreateSurveyContext } from "../../Context/CreateSurveyContext.jsx";
 
 const CreateSurvey = () => {
@@ -27,7 +26,6 @@ const CreateSurvey = () => {
     questioncategory,
     setquestionCategory,
     showQuestionBank,
-    showTemplate,
     formRef,
     dropdownRef,
     optionsDivRef,
@@ -169,7 +167,6 @@ const CreateSurvey = () => {
 
         <NavigationButtons onAddQuestion={handleSubmit} />
 
-        {showTemplate && <Template />}
       </div>
     </div>
   );

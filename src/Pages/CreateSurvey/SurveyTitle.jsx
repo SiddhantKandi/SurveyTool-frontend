@@ -15,10 +15,8 @@ const SurveyTitle = () => {
     setShowImportForm,
     setShowQuestionBank,
     questionsList,
-    setShowTemplate,
     surveyCategory,
     setQuestionsList,
-    template
   } = useContext(CreateSurveyContext);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -43,7 +41,6 @@ const SurveyTitle = () => {
         Surveyquestions: questionsList,
         surveyType: surveyType,
         surveyCategory: surveyCategory || "individual",
-        template : template
       };
 
       const url = "newSurvey/survey";
@@ -53,7 +50,6 @@ const SurveyTitle = () => {
       // Reset survey data
       setTitle("");
       setShowQuestionBank(false);
-      setShowTemplate(false);
       setQuestionsList([]);
 
       const surveyTitle = surveyData.surveyTitle;
@@ -88,15 +84,7 @@ const SurveyTitle = () => {
           />
         </div>
         <div className="flex flex-row">
-          <button
-            className="bg-teal-500 text-white p-2 rounded-lg hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-200 flex flex-row justify-center items-center mr-2"
-            onClick={() => {
-              setShowTemplate(true);
-            }}
-          >
-            <FaDatabase className="mr-1" />
-            Show Template
-          </button>
+          
           <div className="flex items-center space-x-2 relative mr-2">
             <button
               className="bg-orange-400 text-white p-2 rounded-lg hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-orange-500 flex flex-row justify-center items-center"

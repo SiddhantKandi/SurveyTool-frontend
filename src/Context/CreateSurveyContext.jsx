@@ -13,22 +13,15 @@ export const CreateSurveyProvider = ({ children }) => {
   const [showImportForm, setShowImportForm] = useState(false);
   const [questioncategory, setquestionCategory] = useState("");
   const [showQuestionBank, setShowQuestionBank] = useState(false);
-  const [showTemplate, setShowTemplate] = useState(false);
+
   const [surveyCategory, setSurveyCategory] = useState("");
   const formRef = useRef(null);
   const dropdownRef = useRef(null);
   const optionsDivRef = useRef(null);
-  const [template, setTemplate] = useState([]);
+
 
   
-  const [rows, setRows] = useState([
-    ["Row 1 Col 1", "Row 1 Col 2", "Row 1 Col 3", "Row 1 Col 4"],
-    ["Row 2 Col 1", "Row 2 Col 2", "Row 2 Col 3", "Row 2 Col 4"],
-    ["Row 3 Col 1", "Row 4 Col 2", "Row 3 Col 3", "Row 3 Col 4"],
-    ["Row 4 Col 1", "Row 4 Col 2", "Row 4 Col 3", "Row 4 Col 4"],
-    ["Row 5 Col 1", "Row 5 Col 2", "Row 5 Col 3", "Row 5 Col 4"],
-  ]);
-  const [heading, setHeading] = useState("Template");
+
 
   
 
@@ -54,20 +47,12 @@ export const CreateSurveyProvider = ({ children }) => {
         questioncategory,
         setquestionCategory,
         showQuestionBank,
-        setShowQuestionBank,
-        showTemplate,
-        setShowTemplate,
+        setShowQuestionBank, 
         formRef,
         dropdownRef,
         optionsDivRef,
         surveyCategory,
         setSurveyCategory,
-        template,
-        setTemplate,
-        rows,
-        setRows,
-        heading,
-        setHeading,
       }}
     >
       {children}
