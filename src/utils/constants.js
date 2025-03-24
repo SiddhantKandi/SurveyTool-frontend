@@ -1,4 +1,4 @@
-export const VITE_APP_BASE_URL = "http://localhost:8001/api/v1/";
+export const VITE_APP_BASE_URL = "http://localhost:8000/api/v1/";
 export const VITE_APP_FRONT_URL = "http://localhost:5173/";
 
 export const capitalizeFirstLetter = (string) => {

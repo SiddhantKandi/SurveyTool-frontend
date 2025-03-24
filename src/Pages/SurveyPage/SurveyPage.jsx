@@ -152,74 +152,69 @@ const SurveyPage = () => {
 
   const getLocation = async () => {
     const toastId = showLoadingToast("Getting location...");
-
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (pos) => {
-          const { latitude, longitude } = pos.coords;
-
-          try {
-            // Call Microsoft Reverse Geocoding API
-            const response = await apiConnector(
-              "GET",
-              "newSurvey/getLocation",
-              {},
-              {},
-              { latitude, longitude }
-            );
-
-            const address = response?.data?.data;
-
-            setState((prev) => ({
-              ...prev,
-              loading: false,
-              userLocation: {
-                latitude,
-                longitude,
-                address: address || "Address not found", // Fallback if no address is available
-              },
-              locationPopup: false,
-            }));
-
-            updateToast(
-              toastId,
-              "Location and address fetched successfully.",
-              "success"
-            );
-          } catch (error) {
-            setState((prev) => ({
-              ...prev,
-              loading: false,
-              error: "Failed to fetch address.",
-              locationPopup: false,
-            }));
-            updateToast(toastId, "Failed to fetch address.", "error");
-          }
-        },
-        (error) => {
-          setState((prev) => ({
-            ...prev,
-            loading: false,
-            error: "User location is off or User denied location.",
-            locationPopup: false,
-          }));
-          updateToast(toastId, "Failed to fetch location.", "error");
-        }
-      );
-    } else {
+    console.log("Getting location...");
+  
+    if (!navigator.geolocation) {
       setState((prev) => ({
         ...prev,
         loading: false,
         error: "Geolocation is not supported by your browser.",
         locationPopup: false,
       }));
-      updateToast(
-        toastId,
-        "Geolocation is not supported by your browser.",
-        "error"
-      );
+      updateToast(toastId, "Geolocation is not supported by your browser.", "error");
+      return;
     }
+  
+    navigator.geolocation.getCurrentPosition(
+      async (pos) => {
+        const { latitude, longitude } = pos.coords;
+        console.log("Latitude and longitude:", latitude, longitude);
+  
+        try {
+          // Correct API call with query params
+          const response = await apiConnector(
+            "GET",
+            `newSurvey/getLocation?latitude=${latitude}&longitude=${longitude}`
+          );
+  
+          const address = response?.data?.data || "Address not found";
+  
+          setState((prev) => ({
+            ...prev,
+            loading: false,
+            userLocation: { latitude, longitude, address },
+            locationPopup: false,
+          }));
+  
+          updateToast(toastId, "Location and address fetched successfully.", "success");
+        } catch (error) {
+          console.error("Error fetching address:", error);
+          setState((prev) => ({
+            ...prev,
+            loading: false,
+            error: "Failed to fetch address.",
+            locationPopup: false,
+          }));
+          updateToast(toastId, "Failed to fetch address.", "error");
+        }
+      },
+      (error) => {
+        let errorMessage = "Failed to fetch location.";
+        if (error.code === error.PERMISSION_DENIED) errorMessage = "User denied location access.";
+        else if (error.code === error.POSITION_UNAVAILABLE) errorMessage = "Location information is unavailable.";
+        else if (error.code === error.TIMEOUT) errorMessage = "Location request timed out.";
+  
+        setState((prev) => ({
+          ...prev,
+          loading: false,
+          error: errorMessage,
+          locationPopup: false,
+        }));
+        updateToast(toastId, errorMessage, "error");
+      }
+    );
   };
+  
 
   const renderQuestions = () => {
     return surveyData.questions.map((q, index) => (
