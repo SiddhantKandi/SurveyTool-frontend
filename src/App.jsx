@@ -6,7 +6,7 @@ import Login from "./Pages/Authentication/login.jsx";
 import VerifyEmail from "./Pages/verifyEmail.jsx";
 import Preview from "./Pages/Preview/Previewpage.jsx";
 import SurveyPage from "./Pages/SurveyPage/SurveyPage.jsx";
-import Analysis from "./Pages/Analysis.jsx/Analysispage.jsx";
+import Analysis from "./Pages/Analysis/Analysispage.jsx";
 import SurveyAudienceSelector from "./Pages/targettedusers/TargettedSurvey.jsx";
 import ProtectedRoute from "./Components/Protected.route.jsx";
 import Toast from "./utils/Toast.jsx";
