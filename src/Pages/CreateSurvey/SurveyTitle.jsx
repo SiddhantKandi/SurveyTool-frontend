@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CiImport } from "react-icons/ci";
-import { FaDatabase } from "react-icons/fa6";
 import { toast } from "react-toastify";
 import { apiConnector } from "../../utils/apiConnector.js";
 import { AiOutlineBank } from "react-icons/ai";

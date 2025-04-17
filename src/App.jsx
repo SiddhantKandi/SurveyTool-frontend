@@ -63,10 +63,6 @@ function App() {
           path: "respondent/:surveyTitle/:surveyType:/:surveyCategory",
           element: <Respondentdetails />,
         },
-        // {
-        //   path: "/signup",
-        //   element: <Signup />,
-        // },
         {
           path: "/analysis/:surveyTitle/:surveyType/:surveyCategory",
           // Protect this route
