@@ -60,7 +60,7 @@ function App() {
           element: <VerifyEmail />,
         },
         {
-          path: "respondent/:surveyTitle/:surveyType:/:surveyCategory",
+          path: "/respondent/:surveyTitle/:surveyType/:surveyCategory",
           element: <Respondentdetails />,
         },
         {

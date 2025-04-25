@@ -24,7 +24,7 @@ const SurveyAudienceSelector = () => {
     showImportPopup,
     setShowImportPopup,
   } = useContext(TargetedSurveyContext); //Use Context to store global variables
-  const { surveyTitle, surveyType } = useParams(); // Capture surveyTitle and surveyType from the route
+  const { surveyTitle, surveyType,surveyCategory } = useParams(); // Capture surveyTitle and surveyType from the route
 
   const showusers = () => {
     setShowAudienceSelector(!showAudienceSelector); // Open popup for database users
@@ -45,7 +45,7 @@ const SurveyAudienceSelector = () => {
   const sendSurvey = async () => {
     const toastId = showLoadingToast("Sending Survey...");
     try {
-      const url = `targetted/sendemailtorespondets/${surveyTitle}/${surveyType}`;
+      const url = `targetted/sendemailtorespondets/${surveyTitle}/${surveyType}/${surveyCategory}`;
       const response = await apiConnector("POST", url, { users }, {}, {});
       if (response.status === 200) {
         updateToast(
@@ -74,7 +74,7 @@ const SurveyAudienceSelector = () => {
   const sendReminder = async () => {
     const toastId = showLoadingToast("Sending Survey reminder...");
     try {
-      const url = `targetted/sendremindertorespondents/${surveyTitle}/${surveyType}`;
+      const url = `targetted/sendremindertorespondents/${surveyTitle}/${surveyType}/${surveyCategory}`;
       const response = await apiConnector("POST", url, {}, {}, {});
       if (response.status === 200) {
         updateToast(

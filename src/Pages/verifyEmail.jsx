@@ -13,7 +13,7 @@ const VerifyEmail = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { username, email } = useParams();
-  const { surveyTitle, surveyType } = location.state || {};
+  const { surveyTitle, surveyType,surveyCategory } = location.state || {};
 
   // Handle OTP verification
   const handleVerify = async (e) => {
@@ -34,7 +34,7 @@ const VerifyEmail = () => {
           response?.data?.message || "OTP verified successfully",
           "success"
         );
-        navigate(`/SurveyPage/${surveyTitle}/${surveyType}`, {
+        navigate(`/SurveyPage/${surveyTitle}/${surveyType}/${surveyCategory}`, {
           state: { username, email },
         });
       } catch (error) {
