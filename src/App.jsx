@@ -2,17 +2,17 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Navbar from "./Components/Navbar.jsx";
 import Home from "./Pages/Home/Home.jsx";
 import CreateSurvey from "./Pages/CreateSurvey/CreateSurvey.jsx";
-import Login from "./Pages/Authentication/login.jsx";
+// import Login from "./Pages/Authentication/login.jsx";
 import VerifyEmail from "./Pages/verifyEmail.jsx";
 import Preview from "./Pages/Preview/Previewpage.jsx";
 import SurveyPage from "./Pages/SurveyPage/SurveyPage.jsx";
 import Analysis from "./Pages/Analysis/Analysispage.jsx";
 import SurveyAudienceSelector from "./Pages/targettedusers/TargettedSurvey.jsx";
-import ProtectedRoute from "./Components/Protected.route.jsx";
+// import ProtectedRoute from "./Components/Protected.route.jsx";
 import Toast from "./utils/Toast.jsx";
 import Respondentdetails from "./Components/Respondentdetails.jsx";
-import VerifyOTP from "./Pages/ForgotPassword/verifyEmailOTP.jsx";
-import ForgotPasswsord from "./Pages/ForgotPassword/ForgotPassword.jsx";
+// import VerifyOTP from "./Pages/ForgotPassword/verifyEmailOTP.jsx";
+// import ForgotPasswsord from "./Pages/ForgotPassword/ForgotPassword.jsx";
 import ErrorPage from "./Pages/ErrorPage.jsx";
 
 const Layout = () => {
@@ -36,25 +36,25 @@ function App() {
       ),
       errorElement: <ErrorPage errorCode="404" />, // Set the error page
       children: [
-        {
-          path: "/",
-          element: <Login />,
-        },
+        // {
+        //   path: "/",
+        //   element: <Login />,
+        // },
         {
           path: "/targettedsurvey/:surveyTitle/:surveyType/:surveyCategory",
           // Protect this route
-          element: <ProtectedRoute element={<SurveyAudienceSelector />} />,
+          element: <SurveyAudienceSelector />,
         },
-        {
-          path: "/verifyOTP",
-          // Protect this route
-          element: <VerifyOTP />,
-        },
-        {
-          path: "/forgotPassword",
-          // Protect this route
-          element: <ProtectedRoute element={<ForgotPasswsord />} />,
-        },
+        // {
+        //   path: "/verifyOTP",
+        //   // Protect this route
+        //   element: <VerifyOTP />,
+        // },
+        // {
+        //   path: "/forgotPassword",
+        //   // Protect this route
+        //   element: <ProtectedRoute element={<ForgotPasswsord />} />,
+        // },
         {
           path: "/verifyEmail/:username/:email",
           element: <VerifyEmail />,
@@ -66,12 +66,12 @@ function App() {
         {
           path: "/analysis/:surveyTitle/:surveyType/:surveyCategory",
           // Protect this route
-          element: <ProtectedRoute element={<Analysis />} />,
+          element: <Analysis />,
         },
         {
           path: "/preview/:surveyTitle/:surveyType/:surveyCategory",
           // Protect this route
-          element: <ProtectedRoute element={<Preview />} />,
+          element: <Preview  />,
         },
         {
           path: "/SurveyPage/:surveyTitle/:surveyType/:surveyCategory",
@@ -81,14 +81,14 @@ function App() {
           element: <Layout />,
           children: [
             {
-              path: "/home",
+              path: "/",
               // Protect this route
-              element: <ProtectedRoute element={<Home />} />,
+              element: <Home />,
             },
             {
               path: "/createSurvey",
               // Protect this route
-              element: <ProtectedRoute element={<CreateSurvey />} />,
+              element: <CreateSurvey  />,
             },
           ],
         },

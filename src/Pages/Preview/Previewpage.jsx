@@ -215,7 +215,7 @@ const Preview = () => {
                 alt="Logo"
                 className="h-16"
                 onClick={() => {
-                  navigate("/home");
+                  navigate("/");
                 }}
               />
             </div>

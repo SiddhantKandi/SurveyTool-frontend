@@ -1,66 +1,55 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/Logo.png";
-import { FaUserCircle } from "react-icons/fa";
-import { toast } from "react-toastify";
-import { apiConnector } from "../utils/apiConnector.js";
+// import { FaUserCircle } from "react-icons/fa";
+// import { toast } from "react-toastify";
+// import { apiConnector } from "../utils/apiConnector.js";
 
 export default function Navbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [showLogout, setShowLogout] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [showLogout, setShowLogout] = useState(false);
   const navigate = useNavigate();
 
   let logoutRef = useRef();
 
-  useEffect(() => {
-    // Check auth status on mount and after login/logout
-    checkAuthStatus();
-  }, []);
+  // useEffect(() => {
+  //   // Check auth status on mount and after login/logout
+  //   checkAuthStatus();
+  // }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (logoutRef.current && !logoutRef.current.contains(event.target)) {
-        setShowLogout(false);
-      }
-    };
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [showLogout]);
 
-    if (showLogout) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
+  // const checkAuthStatus = async () => {
+  //   try {
+  //     const url = "users/admin";
+  //     const response = await apiConnector("GET", url, {}, {}, {});
+  //     if (response?.status === 200) {
+  //       setIsLoggedIn(true);
+  //     }
+  //   } catch {
+  //     setIsLoggedIn(false);
+  //   }
+  // };
 
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [showLogout]);
-
-  const checkAuthStatus = async () => {
-    try {
-      const url = "users/admin";
-      const response = await apiConnector("GET", url, {}, {}, {});
-      if (response?.status === 200) {
-        setIsLoggedIn(true);
-      }
-    } catch {
-      setIsLoggedIn(false);
-    }
-  };
-
-  const handleLogout = async () => {
-    try {
-      const url = "users/logout";
-      const response = await apiConnector("POST", url, {}, {}, {});
-      if (response.status === 200) {
-        setIsLoggedIn(false);
-        setShowLogout(false);
-        // Clear the 'useremail' from localStorage on logout
-        localStorage.removeItem("useremail");
-        navigate("/");
-        toast.success(response.data.message || "Logged out successfully");
-      }
-    } catch (error) {
-      toast.error(error?.response?.data?.message || "Error logging out");
-    }
-  };
+  // const handleLogout = async () => {
+  //   try {
+  //     const url = "users/logout";
+  //     const response = await apiConnector("POST", url, {}, {}, {});
+  //     if (response.status === 200) {
+  //       setIsLoggedIn(false);
+  //       setShowLogout(false);
+  //       // Clear the 'useremail' from localStorage on logout
+  //       localStorage.removeItem("useremail");
+  //       navigate("/");
+  //       toast.success(response.data.message || "Logged out successfully");
+  //     }
+  //   } catch (error) {
+  //     toast.error(error?.response?.data?.message || "Error logging out");
+  //   }
+  // };
 
   return (
     <div className="py-2">
@@ -72,16 +61,17 @@ export default function Navbar() {
             alt="Logo"
             className="h-16 cursor-pointer"
             onClick={() => {
-              navigate("/home");
+              navigate("/");
             }}
           />
         </div>
-
-        {/* Navigation links in the center
-        <ul className="flex space-x-8">
-          <li>
+{/* 
+        Navigation links in the center */}
+        <ul className="flex space-x-8 mr-10">
+          <li
+          className="font-semibold">
             <NavLink
-              to="/home"
+              to="/"
               className={({ isActive }) =>
                 `${isActive ? "text-orange-700" : "text-black"}`
               }
@@ -89,7 +79,7 @@ export default function Navbar() {
               Home
             </NavLink>
           </li>
-          <li>
+          <li className="font-semibold">
             <NavLink
               to="/createSurvey"
               className={({ isActive }) =>
@@ -99,10 +89,10 @@ export default function Navbar() {
             Create Surveys
             </NavLink>
           </li>
-        </ul> */}
+        </ul>
 
         {/* Login/Signup or Username with Dropdown */}
-        <div className="flex space-x-4">
+        {/* <div className="flex space-x-4">
           {!isLoggedIn ? (
             <NavLink
               to="/"
@@ -150,7 +140,7 @@ export default function Navbar() {
               )}
             </div>
           )}
-        </div>
+        </div> */}
       </nav>
     </div>
   );

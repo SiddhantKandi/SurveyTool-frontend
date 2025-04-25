@@ -369,7 +369,7 @@ function Analysispage() {
           <div
             className="absolute top-1 left-4 mt-1 hover:cursor-pointer "
             onClick={() => {
-              navigate("/home");
+              navigate("/");
             }}
           >
             <img src={Logo} alt="Logo" className="h-16" />

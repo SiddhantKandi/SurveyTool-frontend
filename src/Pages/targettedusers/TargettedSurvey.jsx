@@ -154,7 +154,7 @@ const SurveyAudienceSelector = () => {
           alt="Logo"
           className="h-16 cursor-pointer"
           onClick={() => {
-            navigate("/home");
+            navigate("/");
           }}
         />
       </div>

@@ -78,7 +78,7 @@ const Login = () => {
         localStorage.setItem("useremail", formData.email);
         localStorage.setItem("accessToken", JSON.stringify(response.data.data.accessToken));
         localStorage.setItem("refreshToken", JSON.stringify(response.data.data.refreshToken));
-        navigate("/home");
+        navigate("/");
       }
     } catch (error) {
       updateToast(
