@@ -22,15 +22,22 @@ https://github.com/SiddhantKandi/Neuromed-backend
 
 ### 🔹 1. Home Page, where you can see the survey that you have created, with the number of respondents and the results of each survey
 
-<img src="https://res.cloudinary.com/dw0o9z8vi/image/upload/v1750346377/SurveyTypes_lo2w2y.png" width="800px">
+<img src="https://res.cloudinary.com/dw0o9z8vi/image/upload/v1750346366/HomePage_Indi_rtpejc.png" width="800px">
+
+<img src="https://res.cloudinary.com/dw0o9z8vi/image/upload/v1750346368/Industry_Survey_e4ucfa.png" width="800px">
 
 ---
 
-### 🔹 2. Fill Out Survey Questions
+### 🔹 2. Create Survey Questions by manually typing or by importing from Excel, or by adding through the question bank
 
-Users are shown a list of survey questions based on the selected contest and problem. They fill out the form here.
+<img src="https://res.cloudinary.com/dw0o9z8vi/image/upload/v1750346366/CreateSurvey_ulabjq.png" width="800px">
 
-![Survey Questions](images/fill-survey.png)
+<img src="https://res.cloudinary.com/dw0o9z8vi/image/upload/v1750346366/CreateSurvey1_raebrk.png" width="800px">
+
+<img src="https://res.cloudinary.com/dw0o9z8vi/image/upload/v1750346367/Import_Questions_elwbgd.png" width="800px">
+
+<img src="https://res.cloudinary.com/dw0o9z8vi/image/upload/v1750346370/QuestionBank_gqrxt8.png" width="800px">
+
 
 ---
 
