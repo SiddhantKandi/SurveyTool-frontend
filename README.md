@@ -1,6 +1,9 @@
-# 📊 SurveyTool Backend
+# 📊 SurveyTool Frontend
 
 This is the backend of the SurveyTool application — a platform to create, distribute, and analyze surveys. It is built with **Node.js**, **Express**, and **MongoDB**.
+
+## Setup the backend of this project from
+https://github.com/SiddhantKandi/Neuromed-backend
 
 ---
 
