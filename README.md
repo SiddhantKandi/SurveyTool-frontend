@@ -89,6 +89,6 @@ The admin or survey creator can view all submitted responses and basic statistic
 
 ## ⚙️ Setup Instructions
 
-Clone the repository and run the following commands
-npm install
+Clone the repository and run the following commands //
+npm install //
 npm run dev
