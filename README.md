@@ -1,6 +1,6 @@
 # 📊 SurveyTool Frontend
 
-This is the backend of the SurveyTool application — a platform to create, distribute, and analyse surveys. It is built with **Node.js**, **Express**, and **MongoDB**.
+This is the frontend of the SurveyTool application — a platform to create, distribute, and analyse surveys.
 
 ## Setup the backend of this project from
 https://github.com/SiddhantKandi/SurveyTool-backend
